@@ -1,0 +1,28 @@
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<label for="sitemapJSON" class="col-lg-1 control-label">网站任务 JSON</label>
+
+		<div class="col-lg-10">
+			<textarea rows="7" class="form-control" name="sitemapJSON" id="sitemapJSON"></textarea>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="edit_sitemap_id" class="col-lg-1 control-label">重命名网站 (非必填)</label>
+
+		<div class="col-lg-10">
+			<input type="text" class="form-control" name="_name" id="edit_sitemap_name" placeholder="重命名网站" value="{{name}}">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="edit_sitemap_id" class="col-lg-1 control-label">重命名网站ID (非必填)</label>
+
+		<div class="col-lg-10">
+			<input type="text" class="form-control" name="_id" id="edit_sitemap_id" placeholder="重命名网站ID" value="{{_id}}">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-lg-offset-1 col-lg-10">
+			<button class="btn btn-default" id="submit-import-sitemap">导入</button>
+		</div>
+	</div>
+</form>

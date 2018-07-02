@@ -1,0 +1,1 @@
+chrome.devtools.panels.create("Act Crawler", "../assets/images/crawler48.png", "devtools/devtools_scraper_panel.html");

@@ -1,0 +1,126 @@
+{
+	"manifest_version": 2,
+	"version": "2.0.1",
+	"name": "ACT Crawler",
+	"short_name": "Act Crawler",
+	"description": "Act Crawler是一款专门用来配置网站采集任务的一款程序。",
+	"permissions": ["<all_urls>", "tabs", "notifications", "storage", "unlimitedStorage", "downloads"],
+	"icons": {
+		"16": "assets/images/crawler16.png",
+		"48": "assets/images/crawler48.png",
+		"128": "assets/images/crawler128.png"
+	},
+	"browser_action": {
+		"default_icon": {
+			"19": "assets/images/crawler19.png",
+			"38": "assets/images/crawler38.png"
+		},
+		"default_title": "Act Crawler",
+		"default_popup": "popup.html"
+	},
+	"options_ui":
+    {
+        "page": "options_page/options.html",
+        "chrome_style": true
+    },
+	"devtools_page": "devtools/devtools_init_page.html",
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+	"background": {
+		"scripts": [
+			"assets/jquery-2.0.3.js",
+			"assets/jquery.whencallsequentially.js",
+			"assets/pouchdb-nightly.min.js",
+			"assets/base64.js",
+			"assets/md5.min.js",
+			"scripts/Selector.js",
+			"scripts/Selector/SelectorElement.js",
+			"scripts/Selector/SelectorGroup.js",
+			"scripts/Selector/SelectorLink.js",
+			"scripts/Selector/SelectorPopupLink.js",
+			"scripts/Selector/SelectorText.js",
+			"scripts/Selector/SelectorImage.js",
+			"scripts/Selector/SelectorHTML.js",
+			"scripts/Selector/SelectorElementAttribute.js",
+			"scripts/Selector/SelectorTable.js",
+			"scripts/Selector/SelectorElementScroll.js",
+			"scripts/Selector/SelectorElementClick.js",
+			"scripts/SelectorList.js",
+			"scripts/Sitemap.js",
+			"scripts/Queue.js",
+			"scripts/Job.js",
+			"scripts/Scraper.js",
+			"scripts/ChromePopupBrowser.js",
+			"scripts/Config.js",
+			"scripts/Store.js",
+			"scripts/ScreenShot.js",
+			"scripts/ContentScript.js",
+			"scripts/BackgroundScript.js",
+			"scripts/Popup.js",
+			"background_page/background_script.js"
+		]
+	},
+	"web_accessible_resources": [
+		"assets/images/crawler16.png",
+		"assets/images/crawler48.png",
+		"assets/images/crawler128.png",
+		"assets/images/crawler19.png",
+		"assets/images/crawler38.png",
+		"assets/images/pic1.png",
+		"assets/images/pic2.png",
+		"assets/images/pic3.png",
+		"assets/images/pic4.png",
+		"assets/images/pic5.png",
+		"assets/images/pic6.png",
+		"assets/images/pic7.png",
+		"assets/images/pic8.png",
+		"assets/images/pic9.png",
+		"assets/images/pic10.png",
+		"assets/images/pic11.png",
+		"assets/images/pic12.png",
+		"assets/images/pic13.png",
+		"assets/images/pic14.png",
+		"assets/images/pic15.png",
+		"assets/images/pic11.gif",
+		"assets/images/pic12.gif",
+		"assets/images/camera.png"
+	],
+	"content_scripts": [
+		{
+			"matches": ["*://*/*"],
+			"js": [
+				"assets/jquery-2.0.3.js",
+				"assets/jquery.whencallsequentially.js",
+				"assets/sugar-1.4.1.js",
+				"assets/css-selector/lib/CssSelector.js",
+				"assets/base64.js",
+				"assets/md5.min.js",
+				"scripts/DataExtractor.js",
+				"scripts/ContentSelector.js",
+				"scripts/Selector.js",
+				"scripts/ElementQuery.js",
+				"scripts/UniqueElementList.js",
+				"scripts/Selector/SelectorElement.js",
+				"scripts/Selector/SelectorGroup.js",
+				"scripts/Selector/SelectorLink.js",
+				"scripts/Selector/SelectorPopupLink.js",
+				"scripts/Selector/SelectorText.js",
+				"scripts/Selector/SelectorImage.js",
+				"scripts/Selector/SelectorHTML.js",
+				"scripts/Selector/SelectorElementAttribute.js",
+				"scripts/Selector/SelectorTable.js",
+				"scripts/Selector/SelectorElementScroll.js",
+				"scripts/Selector/SelectorElementClick.js",
+				"scripts/SelectorList.js",
+				"scripts/Sitemap.js",
+				"scripts/ScreenShot.js",
+				"scripts/ContentScript.js",
+				"scripts/BackgroundScript.js",
+				"scripts/Popup.js",
+				"content_script/content_script.js"
+			],
+			"css": [
+				"content_script/content_script.css"
+			]
+		}
+	]
+}

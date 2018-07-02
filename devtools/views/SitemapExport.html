@@ -1,0 +1,21 @@
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<div class="col-lg-offset-1 col-lg-10">
+			<textarea rows="7" class="form-control" readonly id="sitemap_json">{{sitemapJSON}}</textarea>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-lg-offset-1 col-lg-10">
+			<button class="btn btn-primary" action="submit-sitemap-upload">提交给采集服务器</button>&nbsp;
+			&nbsp;&nbsp;<button action="submit-sitemap-upload-back" type="button" class="btn btn-primary btn-xs">返回</button>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-lg-offset-1 col-lg-10">
+			<div class="alert alert-success alert-dismissible fade col-lg-10" role="alert" id="sitemapUploadAlert">
+		      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+		      <strong id="uploadResult"></strong>
+		    </div>
+	    </div>
+    </div>
+</form>

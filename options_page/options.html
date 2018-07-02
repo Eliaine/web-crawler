@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Act Crawler</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="../assets/bootstrap-3.0.0/css/bootstrap.min.css">
+		<script src="../assets/jquery-2.0.3.js"></script>
+		<script src="../assets/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+		<script src="../scripts/Config.js"></script>
+		<script src="options_page.js"></script>
+	</head>
+	<body>
+		<div class="container" style="margin:10px;min-height:400px;">
+			<form class="form-horizontal" id="storage_configuration">
+				<fieldset>
+					<legend>存储配置</legend>
+					<div class="form-group">
+                        <label for="crawlerDb" class="col-lg-2 control-label">任务上传</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" name="crawlerDb" id="crawlerDb" placeholder="任务上传URL">
+						</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="storageType" class="col-lg-2 control-label">存储类型</label>
+                        <div class="col-lg-10">
+                            <select name="storageType" id="storageType" class="form-control">
+                                <option value="local">本地</option>
+                                <option value="couchdb">CouchDB</option>
+                            </select>
+                        </div>
+                    </div>
+
+					<div class="form-group couchdb">
+						<label for="sitemapDb" class="col-lg-2 control-label">任务存储</label>
+
+						<div class="col-lg-10">
+							<input type="text" class="form-control" name="sitemapDb" id="sitemapDb" placeholder="任务存储URL">
+						</div>
+					</div>
+
+					<div class="form-group couchdb">
+						<label for="dataDb" class="col-lg-2 control-label">数据存储</label>
+
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="dataDb" name="dataDb">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-10">
+							<button type="submit" class="btn btn-default">保存</button>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+
+		</div>
+
+	</body>
+</html>

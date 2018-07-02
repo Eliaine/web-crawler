@@ -1,0 +1,22 @@
+<div id="selector-tree">
+	<ol class="breadcrumb">
+		{{#parentSelectors}}
+		<li><a>{{name}}</a></li>
+		{{/parentSelectors}}
+	</ol>
+	<table class="table table-bordered table-condensed table-hover">
+		<thead>
+		<tr>
+			<th width="10%">任务字段名</th>
+			<th>任务名称</th>
+			<th>抽取规则</th>
+			<th style="width:100px">选择类型</th>
+			<th style="width:60px">多选</th>
+			<th>父任务</th>
+			<th style="width:295px">操作</th>
+		</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<button action="add-selector" type="button" class="btn btn-primary btn-xs">添加任务</button>
+</div>

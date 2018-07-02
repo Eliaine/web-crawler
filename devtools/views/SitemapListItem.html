@@ -1,0 +1,19 @@
+<tr>
+	<td>{{_id}}</td>
+	<td class="id">{{name}}</td>
+	<td>
+		{{#startUrl.push}}
+			{{#startUrl}}
+				{{.}},
+			{{/startUrl}}
+		{{/startUrl.push}}
+		{{^startUrl.push}}
+			{{startUrl}}
+		{{/startUrl.push}}
+	</td>
+	<td>
+		<!--<button action="browse-sitemap-data" type="button" class="btn btn-primary btn-xs">浏览数据</button>
+		<button action="csv-download-sitemap-data" type="button" class="btn btn-primary btn-xs">CSV</button>-->
+		<button action="delete-sitemap" type="button" class="btn btn-primary btn-xs">删除</button>
+	</td>
+</tr>

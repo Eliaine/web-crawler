@@ -1,0 +1,216 @@
+<form class="form-horizontal" role="form" id="edit-selector">
+
+	<div class="form-group">
+		<label for="selectorId" class="col-lg-1 control-label">任务字段名</label>
+
+		<div class="col-lg-10">
+			<input type="text" class="form-control" name="id" id="selectorId" placeholder="任务字段名" value="{{selector.id}}">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="selectorId" class="col-lg-1 control-label">任务名称</label>
+
+		<div class="col-lg-10">
+			<input type="text" class="form-control" name="name" id="selectorName" placeholder="任务名称" value="{{selector.name}}">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="type" class="col-lg-1 control-label">选择器类型</label>
+
+		<div class="input-group col-lg-10">
+			<select class="form-control" id="type" name="type">
+				{{#selectorTypes}}
+				<option value="{{type}}">{{title}}</option>
+				{{/selectorTypes}}
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="selector" class="col-lg-1 control-label">抽取规则</label>
+
+		<div class="col-lg-10">
+			<div class="input-group">
+				  <span class="input-group-btn">
+					<button class="btn btn-default" action="select-selector" type="button">选取</button>
+					<button class="btn btn-default" action="preview-selector" type="button" data-toggle="button">选取预览</button>
+					<button class="btn btn-default" action="preview-selector-data" type="button">数据预览</button>
+				  </span>
+				<input type="text" class="form-control selector-value" id="selector" name="selector" value="{{selector.selector}}">
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group feature feature-clickElementSelector">
+		<label for="clickElementSelector" class="col-lg-1 control-label">点击选择器</label>
+
+		<div class="col-lg-10">
+			<div class="input-group">
+				  <span class="input-group-btn">
+					<button class="btn btn-default" action="select-selector" type="button">选取</button>
+					<button class="btn btn-default" action="preview-click-element-selector" type="button" data-toggle="button">选取预览</button>
+				  </span>
+				<input type="text" class="form-control selector-value" id="clickElementSelector" name="clickElementSelector" value="{{selector.clickElementSelector}}">
+			</div>
+		</div>
+	</div>
+
+	<!-- tableHeaderSelector -->
+	<div class="form-group feature feature-tableHeaderRowSelector">
+		<label for="tableHeaderRowSelector" class="col-lg-1 control-label">表头选择</label>
+		<div class="col-lg-10">
+			<div class="input-group">
+				  <span class="input-group-btn">
+					<button class="btn btn-default" action="select-table-header-row-selector" type="button">选取</button>
+					<button class="btn btn-default" action="preview-table-row-selector" type="button" data-toggle="button">选取预览</button>
+				  </span>
+				<input type="text" class="form-control selector-value" id="tableHeaderRowSelector" name="tableHeaderRowSelector" value="{{selector.tableHeaderRowSelector}}">
+			</div>
+		</div>
+	</div>
+
+	<!-- tableRowSelector -->
+	<div class="form-group feature feature-tableDataRowSelector">
+		<label for="tableDataRowSelector" class="col-lg-1 control-label">表数据选择</label>
+		<div class="col-lg-10">
+			<div class="input-group">
+				  <span class="input-group-btn">
+					<button class="btn btn-default" action="select-table-data-row-selector" type="button">选取</button>
+					<button class="btn btn-default" action="preview-table-row-selector" type="button" data-toggle="button">选取预览</button>
+				  </span>
+				<input type="text" class="form-control selector-value" id="tableDataRowSelector" name="tableDataRowSelector" value="{{selector.tableDataRowSelector}}">
+			</div>
+		</div>
+	</div>
+
+	<!-- ClickType -->
+	<div class="form-group feature feature-clickType">
+		<label for="clickType" class="col-lg-1 control-label">点击类型</label>
+
+		<div class="input-group col-lg-10">
+			<select class="form-control" id="clickType" name="clickType">
+				<option value="clickOnce">点击一次 (如翻页, tabs)</option>
+				<option value="clickMore">点击多次 (需重复点击按钮刷新)</option>
+			</select>
+		</div>
+	</div>
+
+	<!-- clickElementUniquenessType -->
+	<div class="form-group feature feature-clickElementUniquenessType">
+		<label for="clickElementUniquenessType" class="col-lg-1 control-label">点击元素去重判定</label>
+		<div class="input-group col-lg-10">
+			<select class="form-control" id="clickElementUniquenessType" name="clickElementUniquenessType">
+				<option value="uniqueText">Text去重</option>
+				<option value="uniqueHTMLText">HTML+Text去重</option>
+				<option value="uniqueHTML">HTML去重</option>
+				<option value="uniqueCSSSelector">CSS去重</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group feature feature-multiple">
+		<div class="col-lg-offset-1 col-lg-10">
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" name="multiple" {{#selector.multiple}}checked="checked"{{/selector.multiple}}> 多选
+				</label>
+			</div>
+		</div>
+	</div>
+
+	<!-- discardInitialElements -->
+	<div class="form-group feature feature-discardInitialElements">
+		<div class="col-lg-offset-1 col-lg-10">
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" name="discardInitialElements" {{#selector.discardInitialElements}}checked="checked"{{/selector.discardInitialElements}}>
+					丢弃初始元素
+				</label>
+			</div>
+		</div>
+	</div>
+
+	<!-- downloadImage -->
+	<div class="form-group feature feature-downloadImage">
+		<div class="col-lg-offset-1 col-lg-10">
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" name="downloadImage" {{#selector.downloadImage}}checked="checked"{{/selector.downloadImage}}> 下载图片
+				</label>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group feature feature-regex">
+		<label for="regex" class="col-lg-1 control-label">正则表达式</label>
+
+		<div class="col-lg-10">
+			<input type="text" class="form-control" name="regex" id="regex" placeholder="regex" value="{{selector.regex}}">
+		</div>
+	</div>
+
+	<div class="form-group feature feature-extractAttribute">
+		<label for="extractAttribute" class="col-lg-1 control-label">属性名</label>
+
+		<div class="col-lg-10">
+			<input type="text" class="form-control" name="extractAttribute" id="extractAttribute" placeholder="采集元素的属性值" value="{{selector.extractAttribute}}">
+		</div>
+	</div>
+
+	<div class="form-group feature feature-delay">
+		<label for="delay" class="col-lg-1 control-label">延迟 (ms)</label>
+
+		<div class="col-lg-10">
+			<input type="text" class="form-control" name="delay" id="delay" placeholder="延迟" value="{{selector.delay}}">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="parentSelectors" class="col-lg-1 control-label">父任务</label>
+
+		<div class="input-group col-lg-10">
+			<select multiple class="form-control" id="parentSelectors" name="parentSelectors">
+				{{#selectorIds}}
+				<option value="{{id}}">{{name}}</option>
+				{{/selectorIds}}
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group feature feature-columns">
+		<label class="col-lg-1 control-label">表格列</label>
+
+		<div class="col-lg-10">
+			<table class="table table-bordered table-condensed">
+				<thead>
+					<tr>
+						<th>列名</th>
+						<th>结果值</th>
+						<th>包含到结果中</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#selector.columns}}
+					<tr>
+						<td><input class="column-header" type="hidden" name="column[header][]" value="{{header}}">{{header}}</td>
+						<td><input class="column-name form-control" type="text" name="column[name][]" value="{{name}}"></td>
+						<td><input class="column-extract" type="checkbox" name="column[extract][]" {{#extract}}checked="checked"{{/extract}}></td>
+					</tr>
+					{{/selector.columns}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-lg-offset-1 col-lg-10">
+			<button class="btn btn-primary" action="save-selector">保存</button> <button action="cancel-selector-editing" class="btn btn-default">取消</button>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-lg-offset-1 col-lg-10">
+
+		</div>
+	</div>
+</form>

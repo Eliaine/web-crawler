@@ -1,0 +1,47 @@
+<div class="visible-xs" >
+	<i style="border: solid black;border-width: 0 3px 3px 0;display: inline-block;padding: 3px;transform: rotate(-135deg);position:fixed;top:10px;right:39px"></i>
+	<div style="text-align:center; padding: 30px 10px 0 10px">
+		<p>请将开发者工具放到浏览器的最底下来开始配置Act Crawler.</p>
+		<img src="dock-to-bottom.png" />
+	</div>
+</div>
+
+<div class="hidden-xs">
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<div class="collapse navbar-collapse navbar-ex1-collapse">
+		<ul class="nav navbar-nav">
+			<li style="width:100px;"><a id="screenshot-button"><img src="../../assets/images/camera.png" style="width:12px;height:12px;margin-bottom:2px;"/>截屏</a></li>
+			<li style="margin-left:5px;margin-right:5px;height:25px;line-height:25px;">|</li>
+			<li><a id="sitemaps-nav-button">网站列表</a></li>
+			<li>
+				<a id="sitemap-nav-button" class="dropdown-toggle disabled" data-toggle="dropdown">网站
+					<span id="navbar-active-sitemap-id"></span>
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a id="sitemap-selector-list-nav-button">任务列表</a></li>
+					<li><a id="sitemap-selector-graph-nav-button">任务图</a></li>
+					<li><a id="sitemap-edit-metadata-nav-button">修改网站</a></li>
+					<li><a id="sitemap-scrape-nav-button">配置采集</a></li>
+					<li><a id="sitemap-browse-nav-button">浏览数据</a></li>
+					<li><a id="sitemap-export-nav-button">上传网站任务</a></li>
+					<li><a id="sitemap-export-data-csv-nav-button">导出数据</a></li>
+				</ul>
+			</li>
+			<li>
+				<a id="create-sitemap-nav-button" class="dropdown-toggle" data-toggle="dropdown">新增网站 <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a id="create-sitemap-create-nav-button">新增网站</a></li>
+					<li><a id="create-sitemap-import-nav-button">导入网站</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+</nav>
+
+<div id="messages"></div>
+<div id="viewport"></div>
+</div>

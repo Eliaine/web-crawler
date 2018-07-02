@@ -1,0 +1,25 @@
+<div id="scrape-sitemap-config">
+	<form class="form-horizontal" role="form" id="submit-scrape-sitemap-form">
+		<div class="form-group">
+			<label for="requestInterval" class="col-lg-1 control-label">请求间隔 (ms)</label>
+			<div class="col-lg-10">
+				<input type="text" class="form-control" name="requestInterval" id="requestInterval" placeholder="请求间隔" value="2000">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="pageLoadDelay" class="col-lg-1 control-label">页面加载延迟(ms)</label>
+			<div class="col-lg-10">
+				<input type="text" class="form-control" name="pageLoadDelay" id="pageLoadDelay" placeholder="页面加载延迟" value="500">
+			</div>
+		</div>
+		<div class="alert alert-success col-lg-10 col-lg-offset-1 hide scraping-in-progress" role="alert">
+			正在采集中...... 如果您要停止采集，请关闭弹出窗口。<br>
+			当采集完成时你可以预览数据或者导出CSV文件。
+		</div>
+		<div class="form-group">
+			<div class="col-lg-offset-1 col-lg-10">
+				<button type="submit" class="btn btn-primary" id="submit-scrape-sitemap">开始采集</button>
+			</div>
+		</div>
+	</form>
+</div>
