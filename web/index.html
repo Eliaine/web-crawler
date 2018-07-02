@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Act Crawler</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="assets/images/bitbug_favicon.ico" />
+<link rel="stylesheet" href="assets/bootstrap-3.0.0/css/bootstrap.css">
+<script src="assets/jquery-2.0.3.js"></script>
+<script src="assets/bootstrap-3.0.0/js/bootstrap.js"></script>
+<script src="scripts/index.js"></script>
+<style>
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif;
+}
+
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+.jumbotron {
+	position: relative;
+	padding: 40px 0;
+	color: #fff;
+	text-align: center;
+	text-shadow: 0 1px 3px rgba(0,0,0,.4),0 0 30px rgba(0,0,0,.075);
+	background: #020031;
+	background: -webkit-gradient(linear,left bottom,right top,color-stop(0,#020031),color-stop(100%,#6d3353));
+	background: -webkit-linear-gradient(45deg,#020031 0,#6d3353 100%);
+	background: -o-linear-gradient(45deg,#020031 0,#6d3353 100%);
+	background: linear-gradient(45deg,#020031 0,#6d3353 100%);
+	-webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2),inset 0 -3px 7px rgba(0,0,0,.2);
+	box-shadow: inset 0 3px 7px rgba(0,0,0,.2),inset 0 -3px 7px rgba(0,0,0,.2)
+}
+
+.jumbotron a {
+	color: #fff;
+	color: rgba(255,255,255,.5);
+	-webkit-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out
+}
+
+.jumbotron aa:hover {
+	color: #fff;
+	text-shadow: 0 0 10px rgba(255,255,255,.25)
+}
+
+.jumbotron .container {
+	position: relative;
+	z-index: 2
+}
+
+.jumbotron:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: url(assets/images/pattern.png) repeat center center;
+	opacity: .4
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min--moz-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2/1) {
+	.jumbotron:after {
+		-webkit-background-size: 150px 150px;
+		background-size: 150px 150px
+	}
+}
+
+.masthead {
+	padding: 60px 0 80px;
+	margin-bottom: 0;
+	color: #fff
+}
+
+@media screen and (min-width:768px) {
+	.masthead {
+		padding: 90px 0 110px
+	}
+}
+
+.masthead h1 {
+	font-size: 60px;
+	line-height: 1;
+	letter-spacing: -2px;
+	font-weight: 700
+}
+
+@media screen and (min-width:768px) {
+	.masthead h1 {
+		font-size: 90px
+	}
+}
+
+@media screen and (min-width:992px) {
+	.masthead h1 {
+		font-size: 100px
+	}
+}
+
+.masthead h2 {
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 1.25
+}
+
+@media screen and (min-width:768px) {
+	.masthead h2 {
+		font-size: 24px
+	}
+}
+
+@media screen and (min-width:992px) {
+	.masthead h2 {
+		font-size: 30px
+	}
+}
+
+.masthead p {
+	font-size: 40px;
+	font-weight: 200;
+	line-height: 1.25
+}
+
+.masthead .masthead-button-links {
+	margin-top: 30px
+}
+
+.masthead-links {
+	margin: 0;
+	padding: 0;
+	list-style: none
+}
+
+.masthead-links li {
+	display: inline;
+	padding: 0 10px;
+	color: rgba(255,255,255,.25)
+}
+
+.masthead-links li a:hover {
+	color: #fff
+}
+
+.subhead {
+	text-align: center;
+	border-bottom: 1px solid #ddd
+}
+
+@media screen and (min-width:768px) {
+	.subhead {
+		text-align: left
+	}
+}
+
+@media (min-width: 768px)
+.bs-docs-header {
+    padding-top: 60px;
+    font-size: 24px;
+    text-align: left;
+}
+.bs-docs-header {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.bs-docs-header, .bs-docs-masthead {
+    position: relative;
+    padding-top: 60px;
+	padding-bottom:10px;
+    color: #cdbfe3;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(0,0,0,.1);
+    background-color: #6f5499;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#563d7c),to(#6f5499));
+    background-image: -webkit-linear-gradient(top,#563d7c 0,#6f5499 100%);
+    background-image: -o-linear-gradient(top,#563d7c 0,#6f5499 100%);
+    background-image: linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0);
+    background-repeat: repeat-x;
+}
+
+.subhead h1 {
+	font-size: 60px
+}
+
+@media screen and (min-width:768px) {
+	.subhead p {
+		text-align: left
+	}
+}
+
+.documentation figure {
+	text-align: center;
+}
+
+code {
+	color: #c7254e;
+	background-color: #f9f2f4;
+	border-radius: 4px;
+}
+
+kbd {
+	color: #F57527;
+}
+
+projectName{
+	color: black;
+	font-weight:bold;
+}
+code, kbd, pre, samp,projectName {
+	font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+}
+.sidebar .sidebar-nav.navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #e7e7e7;
+}
+
+.sidebar .nav-second-level li a {
+	padding-left: 37px;
+}
+</style>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container" id="headerContent">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand hidden-sm" href="#" thref="#homeContent">Act Crawler</a>
+      </div>
+      <div class="navbar-collapse collapse" role="navigation">
+        <ul class="nav navbar-nav">
+          <li class="active" id="homeP"><a href="#" thref="#homeContent">首页</a></li>
+          <li><a href="#" thref="#helpContent">使用手册</a></li>
+		  <li><a href="#" thref="#selectContent">选择器</a></li>
+          <li><a href="https://github.com/Eliaine/web-crawler" target="_blank" thref="#helpContent">相关代码</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right hidden-sm">
+          <li><a href="#" thref="#abountContent">关于</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="homeContent">
+	  <div class="jumbotron masthead">
+		<div class="container">
+		  <h1>Act Crawler</h1>
+		  <h2>简洁、易用、快速的配置方式，让网站采集变得更简单。</h2>
+		  <p class="masthead-button-links">
+			<a class="btn btn-lg btn-primary btn-shadow" href="https://chrome.google.com/webstore/detail/act-crawler/giknhhppialnobaajhhfglgighpdipcl?hl=zh-CN" target="_blank" role="button">Download Free on Chrome Store</a>
+		  </p>
+		  <ul class="masthead-links">
+			<li>
+			  <a href="scripts/act-crawler.crx" download="act-crawler_2.0.1.crx" target="_self" role="button">Download .crx (Free!)</a>
+			</li>
+		  </ul>
+		</div>
+	  </div>
+	  <div class="container projects">
+		<div class="projects-header page-header">
+		  <h2>Act Crawler 是一款专门用于网页数据抽取的程序</h2>
+		  <p>程序有2大优势：免费的谷歌浏览器扩展工具，可配置本地存储还是CouchDB存储。</p>
+		</div>
+		<div class="row">
+		  <div class="col-sm-6 col-md-4 col-lg-3 ">
+			<div class="thumbnail" style="height: 336px;">
+				<img class="lazy" src="assets/images/q1.png" width="300" height="150">
+			  <div class="caption">
+				<h3>
+					<a href="#">任务树<br><small> 网站树形任务图</small></a>
+				</h3>
+				<p>Act Crawler以网站作为采集管理的维度，支持一个网站配置多个入口URL和任务。每个网站支持树形任务配置。可手动添加也可导入。</p>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-sm-6 col-md-4 col-lg-3 ">
+			<div class="thumbnail" style="height: 336px;">
+				<img class="lazy" src="assets/images/q2.png" width="300" height="150">
+			  <div class="caption">
+				<h3>
+					<a href="#">CSS选择器 <br><small>自动获取选取元素的xpath</small></a>
+				</h3>
+				<p>Act Crawler利用CSS选择器来定位到web页面的HTML的相关元素并获取数据，可灵活选取和预览。支持CSS1-3的版本，并且支持获取通过JQuery添加的样式。</p>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-sm-6 col-md-4 col-lg-3 ">
+			<div class="thumbnail" style="height: 336px;">
+				<img class="lazy" src="assets/images/q3.png" width="300" height="150">
+			  <div class="caption">
+				<h3>
+					<a href="#">模拟采集<br><small>多种选择器及模式配置</small></a>
+				</h3>
+				<p>Act Crawler具有多种类型的选择器配置，可用于不同类型的数据提取和及满足不同类型的网站。选择器可分为三类：数据抽取、链接抽取、元素抽取。</p>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-sm-6 col-md-4 col-lg-3 ">
+			<div class="thumbnail" style="height: 336px;">
+				<img class="lazy" src="assets/images/q4.png" width="300" height="150">
+			  <div class="caption">
+				<h3>
+					<a href="#">数据管理 <br><small>存储与导出</small></a>
+				</h3>
+				<p>Act Crawler支持配置数据是本地存储还是CouchDB存储，还支持配置将任务上传给自有的采集系统，采集数据支持导出CSV格式文件。</p>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+  </div>
+  <div id="helpContent">
+	<div class="bs-docs-header" tabindex="-1">
+      <div class="container">
+        <h1>帮助手册</h1>
+        <p>当您想用我们的软件时，请你先打开googleChrome的开发者工具。</p>
+      </div>
+    </div>
+	<div class="container projects">
+		  <div class="row">
+			<div class="col-xs-6 col-sm-3 col-md-3 sidebar" id="myScrollspy">
+				<div class="sidebar-nav navbar-collapse">
+					<ul class="nav" id="myNav">
+						<li><a href="#" thref="#installation">安装</a></li>
+						<li><a href="#" thref="#open-web-scraper">运行软件</a></li>
+						<li><a href="#" thref="#scraping-a-site">采集网站</a></li>
+						<li><a href="#" thref="#selectors">选择器</a>
+							<ul class="nav nav-second-level collapse in">
+								<li><a href="#" thref="#text-selector"> 文本选择器 </a></li>
+								<li><a href="#" thref="#link-selector"> 链接选择器 </a></li>
+								<li><a href="#" thref="#link-popup-selector"> 弹出窗链接选择器 </a></li>
+								<li><a href="#" thref="#image-selector"> 图片选择器 </a></li>
+								<li><a href="#" thref="#table-selector"> 表格选择器 </a></li>
+								<li><a href="#" thref="#element-attribute-selector"> 属性选择器</a></li>
+								<li><a href="#" thref="#html-selector"> HTML选择器 </a></li>
+								<li><a href="#" thref="#grouped-selector"> 归类选择器 </a></li>
+								<li><a href="#" thref="#element-selector"> 元素选择器</a></li>
+								<li><a href="#" thref="#element-scroll-down-selector">滚动元素选择器 </a></li>
+								<li><a href="#" thref="#element-click-selector">点击元素选择器 </a></li>
+							</ul></li>
+						<li><a href="#" thref="#css-selector">CSS选择器</a></li>
+						<li><a href="#" thref="#storage-backends">存储备份</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-9 col-md-9 documentation">
+				<div id="installation" class="docs" style="">
+					<h1>安装</h1>
+					<p>
+						你可以从 <a
+							href="https://chrome.google.com/webstore/detail/act-crawler/giknhhppialnobaajhhfglgighpdipcl?hl=zh-CN"
+							title="Install Act crawler from Chrome store">Chrome store</a>来下载本插件安装。
+						安装后，您应该重新启动Chrome以确保本插件完全加载。如果您不想重新启动Chrome，则只需在安装后创建的选项卡上使用本插件。
+					</p>
+					<h2>需求</h2>
+					<p>本插件需要 Chrome 31+ 以上版本. 没有操作系统的局限性。</p>
+				</div>
+				<div id="open-web-scraper">
+					<h1>运行软件</h1>
+					<p><projectName>Act Crawler</projectName>软件集成到Chrome开发工具中。图1显示了如何打开它。您还可以使用这些快捷方式来打开开发工具。打开开发工具后打开<projectName>Act Crawler</projectName>。</p>
+					<p>快捷键:</p>
+					<ul>
+						<li>windows, linux: <code>Ctrl+Shift+I</code>, <code>f12</code>,打开 <code>Tools(更多工具) / Developer tools(开发者工具)</code></li>
+						<li>mac： <code>Cmd+Opt+I</code>, 打开 <code>Tools / Developer tools</code></li>
+					</ul>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic1.png" alt="图1" width="750px" height="500px">
+						<figcaption>图1:打开程序</figcaption>
+					</figure>
+					</p>
+				</div>
+				<div id="scraping-a-site">
+					<h1>网站采集</h1>
+					<p>在浏览器中打开你想要采集的网站</p>
+					<h2>新增网站</h2>
+					<p>
+						在插件页面点击新增网站，新增网站时需要确保网站名称是唯一的，然后需要指定网站的入口URL，这是采集的起始URL。如果你的网站需要多个采集入口，还可以添加多个入口URL。例如：如果你已经为网站的各个板块找好入口URL，那么你可以点击"+"号添加多个入口URL输入框，填上每个板块的入口URL。
+					</p>
+					<h3>指定范围段的URL</h3>
+					<p>
+						在网站的URL为数字编号的情况下，创建范围启动URL比创建每个导航链接的入口URL要简单得多。若要<kbd>指定范围URL</kbd>，请使用正则表达式的范围定义<code>[1-100]</code>替换起始URL的数字部分。如果网站的URL中使用零填充，则在范围定义<code>[001-100]</code>中添加零填充。如果你想跳过一些URL，那么你也可以指定像<code>[0-100:10]</code>这样的增量。
+					</p>
+					<p>
+						范围段URL：<code>http://example.com/page/[1-3]</code>表示:
+					</p>
+					<ul>
+						<li><code>http://example.com/page/1</code></li>
+						<li><code>http://example.com/page/2</code></li>
+						<li><code>http://example.com/page/3</code></li>
+					</ul>
+					<p>
+						从0开始的范围段URL<code>http://example.com/page/[001-100]</code>表示:
+					</p>
+					<ul>
+						<li><code>http://example.com/page/001</code></li>
+						<li><code>http://example.com/page/002</code></li>
+						<li><code>http://example.com/page/003</code></li>
+					</ul>
+					<p>
+						使用增量范围的URL<code>http://example.com/page/[0-100:10]</code>表示:
+					</p>
+					<ul>
+						<li><code>http://example.com/page/0</code></li>
+						<li><code>http://example.com/page/10</code></li>
+						<li><code>http://example.com/page/20</code></li>
+					</ul>
+					<h2>添加任务</h2>
+					<p>新增网站后，可以给网站添加任务。在网站的任务列表面板中，可以添加任务、修改任务并指定父任务。任务可以以树形结构添加。<projectName>Act Crawler</projectName>将按照树结构中的排序顺序执行采集。例如，有一个新闻网站，您想采集首页上出现的所有文章，网站结构如下图1所示：
+					</p>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic2.png" alt="图1">
+						<figcaption>图1: 网站结构</figcaption>
+					</figure>
+					</p>
+					<p>
+						想要采集这种类型网站，你可以创建一个选用<a href="#" thref="#link-selector"> 链接选择器 </a>的任务，它将在首页中提取所有的文章链接。然后，您可以添加一个选择<a href="#" thref="#text-selector"> 文本选择器 </a>的任务作为它的子任务，该<a href="#" thref="#text-selector"> 文本选择器 </a>任务将从父任务<a href="#" thref="#link-selector"> 链接选择器 </a>采集到的链接做为入口地址来提取文章的相关信息。下面的图片说明了这种新闻站点应该如何创建网站采集任务。
+					</p>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic3.png" alt="图2">
+						<figcaption>图2: 网站任务</figcaption>
+					</figure>
+					</p>
+					<p>请注意，在创建任务使用选择器选定数据时，请使用选取预览和数据预览功能，以确保正确的选取元素并采集到正确的结果。</p>
+					<p>
+						更多关于任务选择器的信息请参考<a href="#selectors">选择器</a>。在开始使用本软件前，你至少应该先阅读并理解以下选择器的使用范围及使用方法：
+					</p>
+					<ul>
+						<li><a href="#" thref="#text-selector"> 文本选择器 </a></li>
+						<li><a href="#" thref="#link-selector"> 链接选择器 </a></li>
+						<li><a href="#" thref="#element-selector"> 元素选择器</a></li>
+					</ul>
+					<h3>任务图</h3>
+					<p>在为网站创建了相关任务之后，您可以检查网站所配置的任务图。下面的图片显示了一个任务图示例。</p>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic4.png" alt="图3">
+						<figcaption>图3: 网站任务图</figcaption>
+					</figure>
+					</p>
+					<h2>网站数据采集</h2>
+					<p>
+						在您为网站创建好了任务之后，您就可以开始采集了。点击网站下拉框选择<kbd>配置采集</kbd>，配置相关参数后点击<kbd>开始采集</kbd>，将打开一个新的弹出窗口，在该窗口中，<projectName>Act Crawler</projectName>将根据配置的网站入口URL载入页面并从中采集数据。采集完成后，弹出窗口将关闭，您将收到采集结束的弹出消息通知。您可以通过点击网站下拉框的<kbd>浏览数据</kbd>打开浏览面板查看已采集的数据，并通过点击网站下拉框的<kbd>导出数据</kbd>导出CSV文件。
+					</p>
+				</div>
+				<div id="selectors">
+					<h1>选择器</h1>
+					<p><projectName>Act Crawler</projectName>具有多种类型的选择器，可用于不同类型的数据提取和及满足不同类型的网站。选择器可分为三类：</p>
+					<ul>
+						<li>用于数据获取的数据抽取选择器</li>
+						<li>用于链接获取的链接抽取选择器</li>
+						<li>用于多条记录元素获取的元素抽取选择器</li>
+					</ul>
+
+					<h3>数据抽取选择器</h3>
+					<p>数据抽取选择器简单地从所选元素返回数据。例如，<a href="#" thref="#text-selector"> 文本选择器 </a>从选定的元素中提取文本。以下这些选择器都可以用作数据抽取选择器：</p>
+					<ul>
+						<li><a href="#" thref="#text-selector">文本选择器</a></li>
+						<li><a href="#" thref="#link-selector"> 链接选择器 </a></li>
+						<li><a href="#" thref="#link-popup-selector"> 弹出窗链接选择器 </a></li>
+						<li><a href="#" thref="#image-selector"> 图片选择器 </a></li>
+						<li><a href="#" thref="#table-selector"> 表格选择器 </a></li>
+						<li><a href="#" thref="#element-attribute-selector"> 属性选择器</a></li>
+						<li><a href="#" thref="#html-selector"> HTML选择器 </a></li>
+						<li><a href="#" thref="#grouped-selector"> 归类选择器 </a></li>
+					</ul>
+					<h3>链接抽取选择器</h3>
+					<p>
+						链接抽取选择器将抽取出页面的所有链接URL，可作为其子任务的入口URL。例如:如果在一个网站的任务图中有一个链接抽取任务和3个文本抽取任务，那么<projectName>Act Crawler</projectName>程序将利用<a href="#" thref="#link-selector"> 链接选择器 </a>任务提取出所有URL，然后打开每个链接URL，并按照子任务中配置的<a href="#" thref="#text-selector"> 文本选择器 </a>来提取相关数据。当然，<a href="#" thref="#link-selector"> 链接选择器 </a>任务之后也可能有<a href="#" thref="#link-selector"> 链接选择器 </a>任务作为子任务，那么这些子<a href="#" thref="#link-selector"> 链接选择器 </a>任务采集到的链接将被用于更下一级的任务入口地址。以下是当前可用的链接抽取选择器：
+					</p>
+					<ul>
+						<li><a href="#" thref="#link-selector"> 链接选择器 </a></li>
+						<li><a href="#link-popup-selector">新窗口链接选择器</a></li>
+					</ul>
+					<h3>元素抽取选择器</h3>
+					<p>
+						元素抽取选择器用于页面中包含多条记录的数据元素的元素选择。例如，可以使用元素抽取选择器来选择电子商务类网站中的商品列表。<projectName>Act Crawler</projectName>程序将会根据<a href="#" thref="#element-selector"> 元素选择器</a>将获取到每个商品元素作为子任务的HTML，然后子任务将在该HTML里抽取商品的每个属性。以下是当前可用的元素抽取选择器：
+					</p>
+					<ul>
+						<li><a href="#" thref="#element-selector"> 元素选择器</a></li>
+						<li><a href="#" thref="#element-scroll-down-selector">滚动元素选择器 </a></li>
+						<li><a href="#" thref="#element-click-selector">点击元素选择器 </a></li>
+					</ul>
+
+					<h2>选择器配置选项</h2>
+
+					<p>每个选择器都有配置选项。在这里你可以看到最常见的。在选择器文档中描述了每个选择器的具体配置选项。</p>
+
+					<ul>
+						<li>选择器-<a href="#css-selector">CSS 选择器</a>，它可以在页面上选择出将要获取的元素。</li>
+						<li><kbd>多选</kbd>-在单个选择器任务中，当需要将多次选择的数据部分合并采集或者每个选择部分单独拆分成一条记录时，应该勾上此选项。两个或多个选择器任务之间勾选此选项是不会将采集结果数据合并的。</li>
+						<li>延迟 - 作用在下载页面操作之后，根据选择器的规则进行解析之前等待的时间。</li>
+						<li>父任务 - 配置此任务的父任务以生成任务树。</li>
+					</ul>
+					<p>注意！使用本工具在一个网站_root下建立多个采集任务时，系统会给该网站下的每个一级任务分别建表保存这个一级任务及其下子任务所采集的数据，两个一级任务之间的数据是不能逻辑关联的。例如你想要获取该网站下所有导航链接和翻页链接下的数据，如果直接建立2个<a href="#" thref="#link-selector"> 链接选择器 </a>类型的任务所采集到的数据之间是不能逻辑关联的。正确的配置方式应该是先利用<a href="#" thref="#element-selector"> 元素选择器</a>类型并且勾选上<kbd>多选</kbd>的方式建立一个一级任务获取到所有要进一步采集的部分，然后再建立各自解析的子任务来进行数据的获取。
+					</p>
+				</div>
+				<div id="text-selector">
+					<h1>文本选择器</h1>
+					<p>
+						<a href="#" thref="#text-selector"> 文本选择器 </a>用于文本选择。<a href="#" thref="#text-selector"> 文本选择器 </a>将从选定元素和其所有子元素中提取文本。HTML将被剥离，只有文本将被返回。选择器将忽略<kbd>Script</kbd>和<kbd>style</kbd>标签内的文本。<br>标签将用换行符替换。您还可以将正则表达式应用于对结果数据进行更精确的返回。
+					</p>
+					<h2>配置选项</h2>
+					<ul>
+						<li>选择器-<a href="#css-selector">CSS 选择器</a>，用于提取需要获取文本数据的元素
+						</li>
+						<li><kbd>多选</kbd> - 多个选中的记录会一起合并成一个值. 通常不需要勾选. 如果你想在一个页面中用勾选<kbd>多选</kbd>来获取多段文本，还不如直接选择用<a href="#" thref="#element-selector"> 元素选择器</a>。
+						</li>
+						<li>正则 - 正则表达式将从结果中提取子串</li>
+					</ul>
+					<h3>正则表达式</h3>
+					<p>
+						正则表达式属性可用于提取选择器提取的文本的子字符串。当使用正则表达式时，整个匹配项中只有（组0）将被返回结果。更多的正则表达式学习可以到<a
+							href="http://www.regexr.com/">www.regexr.com</a>网站。
+					</p>
+					<p>下面是一些你可能会发现有用的例子：</p>
+					<table>
+						<thead>
+							<tr>
+								<th>文本</th>
+								<th>正则</th>
+								<th>结果</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>price: 14.99$</td>
+								<td><code>[0-9]+\.[0-9]+</code></td>
+								<td>14.99</td>
+							</tr>
+							<tr>
+								<td>id: H83JKDX4</td>
+								<td><code>[A-Z0-9]{8}</code></td>
+								<td>H83JKDX4</td>
+							</tr>
+							<tr>
+								<td>date: 2014-08-20</td>
+								<td><code>[0-9]{4}\-[0-9]{2}\-[0-9]{2}</code></td>
+								<td>2014-08-20</td>
+							</tr>
+						</tbody>
+					</table>
+					<h2>用例</h2>
+					<p>
+						<strong>解析URL中只有一条记录多个属性值的页面</strong>
+					</p>
+					<p>
+						例如，你需要抓取新闻详情页，页面可能包含文章、标题、发布日期和作者。<a href="#" thref="#link-selector"> 链接选择器 </a>可以将采集器导航到这些文章页中的入口URL。多个<a href="#" thref="#text-selector"> 文本选择器 </a>任务可以提取标题、日期、作者和文章。对于<a href="#" thref="#text-selector"> 文本选择器 </a>任务，一般<kbd>多选</kbd>应该不被勾选，因为获取到的记录结果只会保存到一个字段中。
+					</p>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic5.png" alt="图1">
+						<figcaption>图1: 只有一条记录多个属性值的页面</figcaption>
+					</figure>
+					</p>
+					<p>
+						<strong>解析URL中有多条记录多个属性值的页面</strong>
+					</p>
+					<p>
+						电子商务网站通常每页有多个项目。如果您想采集这些项目的所有项，则需要先创建一个<a href="#" thref="#element-selector"> 元素选择器</a>类型的任务先来解析所有项然后再创建多个<a href="#" thref="#text-selector"> 文本选择器 </a>任务来解析项目中的具体属性。
+					</p>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic6.png" alt="图2">
+						<figcaption>图2: 多条记录多个属性值的页面</figcaption>
+					</figure>
+					</p>
+					<p>
+						<strong>解析URL中有多条记录单个属性的页面</strong>
+					</p>
+					<p>
+						例如，您想提取一篇文章的所有评论。在一个页面中有多个评论，只需要评论内容（如果您还需要其他属性，请参阅上面的示例）的情况下。您可以创建一个<a href="#" thref="#text-selector"> 文本选择器 </a>任务来提取所有评论内容，并且勾选上<kbd>多选</kbd>，因为您需要将所有选上的评论内容都解析出来。如果没有勾选上<kbd>多选</kbd>的情况下，采集解析器将只能解析出第一段选中的内容值。
+					</p>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic7.png" alt="图3">
+						<figcaption>图3：多条记录单个属性的页面</figcaption>
+					</figure>
+					</p>
+				</div>
+				<div id="link-selector">
+					<h1>链接选择器</h1>
+					<p>
+						链接选择器用于获取所有A标签的链接。如果你光使用链接选择器创建一个任务而没有任何子任务，那么它将只提取链接文本和链接的HREF属性。如果向链接选择器任务添加子任务，那么这个链接选择器任务会将获取到的链接当做子任务的入口URL。如果你需要深入采集多个链接，则需要勾选上<kbd>多选</kbd>
+					</p>
+					<p>
+						注意！链接选择器只适用带有href属性的&lt;A&gt;标签。如果链接选择器不能满足您的工作，那么您可以尝试下面这些解决方案：</p>
+					<ol>
+						<li>检查单击一个链接后浏览器中的链接是否更改（不包括URL中带上时间hash值等无验证参数的链接）。如果链接不改变，那么站点可能使用Ajax进行数据加载。这时候你应该使用<a href="#" thref="#element-click-selector">点击元素选择器 </a>而不是使用<a href="#" thref="#link-selector"> 链接选择器 </a>。
+						</li>
+						<li>如果网站是打开一个弹出窗口，则应该使用<a href="#" thref="#link-popup-selector"> 弹出窗链接选择器 </a>。</li>
+						<li>该网站可能使用JavaScript 的window.location来更变更URL。Act	Crawler目前版本无法处理这种情况。</li>
+					</ol>
+					<h2>配置选项</h2>
+					<ul>
+						<li>选择器-<a href="#css-selector">CSS 选择器</a>用于选择链接元素，从中提取出所有链接。
+						</li>
+						<li><kbd>多选</kbd> - 勾选上时将会将每个解析出的URL单独保存一条记录。通常还需要通过<kbd>数据预览</kbd>功能检查看是否解析正确。</li>
+					</ul>
+					<h2>用例</h2>
+					<p>
+						<strong>有多个导航类别的页面</strong>
+					</p>
+					<p>
+						例如，电子商务网站具有多层次的导航类别->子类别。为了从所有类别和子类别中采集数据，可以创建两个<a href="#" thref="#link-selector"> 链接选择器 </a>任务。一个选择器任务将选择类别链接，另一个选择器任务将选择类别页中可用的子类别链接。子类别<a href="#" thref="#link-selector"> 链接选择器 </a>任务应作为类别<a href="#" thref="#link-selector"> 链接选择器 </a>任务的子级。从子类别页提取基本数据的任务应该作为子类别选择器任务的子任务。
+					</p>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic8.png" alt="图1">
+						<figcaption>图1: 多链接选择器用于分类导航</figcaption>
+					</figure>
+					</p>
+					<p>
+						<strong>处理分页</strong>
+					</p>
+					<p>
+						例如，电子商务网站有多个类别。每个类别都有一个项目列表和分页链接。也有一些页面不能直接从类别中获得，但是可以从分页页面中获得（可以看到分页链接1-5，但不是6-8）。你可以通过建立一个<a href="#" thref="#link-selector"> 链接选择器 </a>任务来获取每一个类别的URL，然后再建立一个子任务来从类别页面中取项目，但是这些子任务将只能获取到第一个分页页面的项目。若要从所有分页页面中提取项目，包括其他在开始时不可见的链接，则需要再创建一个<a href="#" thref="#link-selector"> 链接选择器 </a>任务作为第二级任务，该任务负责获取到所有分页页面链接。图2显示了如何在网站中创建此类网站任务。根据图2的配置，当Act
+						Crawler执行第一个任务时，它将提取出页面中所有的分类入口链接。之后，根据配置的数据解析子任务则从该页面获取到相关的项目信息，并且它还会根据配置的分页链接任务找到所有的分页链接。然后继续访问分页链接入口获取页面上的项目信息。如果分页链接任务下面没有创建子任务，那它将只能递归地发现所有分页列表URL。图3显示了一个网站的采集流程图，您可以看到分页链接任务如何发现更多的分页链接和更多的数据。
+					</p>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic9.png" alt="图2">
+						<figcaption>图2: 分页网站任务</figcaption>
+					</figure>
+					<figure class="image">
+						<img src="assets/images/pic10.png" alt="图3">
+						<figcaption>图3: 分页网站的任务图</figcaption>
+					</figure>
+					</p>
+				</div>
+				<div id="link-popup-selector" class="docs" style="display: none;">
+					<h1>弹出窗链接选择器</h1>
+					<p>
+						<a href="#" thref="#link-popup-selector"> 弹出窗链接选择器 </a>的工作方式类似于<a href="#" thref="#link-selector"> 链接选择器 </a>。它也可以用于URL提取。唯一的区别是<a href="#" thref="#link-popup-selector"> 弹出窗链接选择器 </a>应该在点击事件时网站打开了一个新窗口（或弹出窗口）时使用，而不是在浏览器的同一个选项卡中加载URL，或者是在一个新的选项卡中打开链接的情况。此选择器将捕获弹出窗口事件并提取URL。如果网站是打开的弹出层窗口而不是真实的浏览器窗口，那么您应该尝试<a href="#" thref="#element-selector"> 元素选择器</a>。
+					</p>
+					<p>注意！在选择这些链接元素时，可以将鼠标移动到该元素之上并按“S”来选择它，以防止它打开弹出窗口。</p>
+
+					<h2>用例</h2>
+					<p>
+						请参考 <a href="#" thref="#link-selector"> 链接选择器 </a> 的用例。
+					</p>
+				</div>
+				<div id="image-selector">
+					<h1>图片选择器</h1>
+					<p>
+						<a href="#" thref="#image-selector"> 图片选择器 </a>可以提取图片的<code>src</code>属性（URL）。
+					</p>
+					<p>
+						注意！当选择用于<a href="#" thref="#image-selector"> 图片选择器 </a>的<a href="#" thref="#css-selector">CSS选择器</a>时，站点内的所有图像可能被移动到顶部。如果这个功能在某种程度上破坏了原始网页布局，请将其报告为bug。</p>
+					<h2>配置选项</h2>
+					<ul>
+						<li>选择器 - <a href="#css-selector">CSS 选择器</a> 用于图片链接提取.
+						</li>
+						<li><kbd>多选</kbd> - 勾选上时将会将每个解析出的URL单独保存一条记录。通常在选择图像选择器时勾选。</li>
+						<li>下载图片 - 该功能计划是用来下载图片的。暂时使用图片下载脚本代替。</li>
+					</ul>
+					<h2>用例</h2>
+					<p>
+						参考 <a href="#" thref="#text-selector"> 文本选择器 </a> 的用例。
+					</p>
+					<h2>图片下载脚本</h2>
+					<p>图片下载脚本将在利用<a href="#" thref="#image-selector"> 图片选择器 </a>任务下载下来的数据导出的CSV文件中查找图片URL并下载它们。</p>
+					<h3>Windows下的使用方法</h3>
+					<ol>
+						<li>从下面地址下载并安装 python 3.x: <a
+							href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>
+						</li>
+						<li>从下面地址下载图片下载脚本: <a
+							href="https://github.com/webscraperio/image-downloader/releases">https://github.com/webscraperio/image-downloader</a>
+						</li>
+						<li>采集网站的图片数据并导出CSV文件</li>
+						<li>拖动CSV文件到文件 <code>image-downloader.py</code>上
+							<figure class="image">
+								<img src="assets/images/pic11.gif" alt="图1">
+								<figcaption>图1: windows下图片下载</figcaption>
+							</figure></li>
+					</ol>
+					<h3>macOS, Linux下的使用方法</h3>
+					<ol>
+						<li>安装 python ，一般服务器都已经自带安装。</li>
+						<li>从下面地址下载图片下载脚本: <a
+							href="https://github.com/webscraperio/image-downloader/releases">https://github.com/webscraperio/image-downloader</a>
+						</li>
+						<li>将文件 <code>image-downloader.py</code> 拷贝到 <code>Downloads</code>路径。
+						</li>
+						<li>采集网站图片数据并导出CSV文件</li>
+						<li>将CSV文件放到 <code>Downloads</code> 目录。
+						</li>
+						<li>打开 <code>Terminal</code> 应用. 如果没有安装需要先安装。
+						</li>
+						<li>切换到 <code>Downloads</code> 目录: <code>bash cd Downloads</code></li>
+						<li>运行脚本: <code>bash python image-downloader scraped_data.csv</code></li>
+					</ol>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic12.gif" alt="图2">
+						<figcaption>Fig. 2: macOS下图片下载</figcaption>
+					</figure>
+					</p>
+				</div>
+				<div id="table-selector">
+					<h1>表格选择器</h1>
+					<p><a href="#" thref="#table-selector"> 表格选择器 </a>可以从html的页面中提取表格中的数据。表选择器包括有3个可配置的CSS 选择器。选择器用于表格选择。选择器确定选中后，选择器将自动尝试猜测标题行和数据行的选取范围。您可以单击这些选择器上的选取预览，以查看各个选择器是否找到了正确的表的标题和数据行。当从多个页面中提取表格数据时，表头选择器用于标识表列名，也可以重命名表列名。图1显示了从表中提取数据时应该选择的内容。
+					</p>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic11.png" alt="图1">
+						<figcaption>图1: 表格选择器</figcaption>
+					</figure>
+					</p>
+
+					<h2>配置选项</h2>
+					<ul>
+						<li>选择器 - <a href="#css-selector">CSS 选择器</a> 用于table元素选择。
+						</li>
+						<li>表头选择 - <a href="#css-selector">CSS 选择器</a> 用来选择表格表头范围。
+						</li>
+						<li>表数据选择 - <a href="#css-selector">CSS 选择器</a> 用来选择表格数据范围。
+						</li>
+						<li><kbd>多选</kbd> - 在选择<a href="#" thref="#table-selector"> 表格选择器 </a>的情况下一般都需要勾选上此项，因为需要获取多条数据记录。</li>
+					</ul>
+					<h2>用例</h2>
+					<p>
+						参考 <a href="#" thref="#text-selector"> 文本选择器 </a> 的用例。
+					</p>
+				</div>
+				<div id="element-attribute-selector" class="docs"
+					style="display: none;">
+					<h1>属性选择器</h1>
+					<p>
+						元素<a href="#" thref="#element-attribute-selector"> 属性选择器</a>可以提取HTML元素的属性值。例如，您可以使用此选择器从下面的html文本中提取出title属性：<code>&lt;a href="#" title="my title"&gt;link&lt;a&gt;</code>。
+					</p>
+					<h2>配置选项</h2>
+					<ul>
+						<li>选择器 - <a href="#css-selector">CSS 选择器</a> 用来选取元素。</li>
+						<li><kbd>多选</kbd> - 如果需要将选中的多个属性生成多条记录时需要勾选。</li>
+						<li>属性名 - 将提出该属性名的值。例如： <code>title</code>, <code>data-id</code>.
+						</li>
+					</ul>
+					<h2>用例</h2>
+					<p>
+						参考 <a href="#" thref="#text-selector"> 文本选择器 </a>的用例。
+					</p>
+				</div>
+				<div id="html-selector">
+					<h1>HTML选择器</h1>
+					<p><a href="#" thref="#html-selector"> HTML选择器 </a>可以提取所选元素中的HTML和文本。只提取该元素的innerHTML 。</p>
+					<h2>配置属性</h2>
+					<ul>
+						<li>选择器 - <a href="#css-selector">CSS 选择器</a>用来选择需要获取HTML的元素。</li>
+						<li><kbd>多选</kbd> - 勾选上时将会对多个选中的元素提取出多条记录。</li>
+					</ul>
+					<h2>用例</h2>
+					<p>
+						参考 <a href="#" thref="#text-selector"> 文本选择器 </a> 的用例
+					</p>
+				</div>
+				<div id="grouped-selector">
+					<h1>归类选择器</h1>
+					<p><a href="#" thref="#grouped-selector"> 归类选择器 </a>可以将来自多个元素的文本数据组合为一个记录。提取的数据将存储为JSON格式。</p>
+					<h2>配置属性</h2>
+					<ul>
+						<li>选择器 - <a href="#css-selector">CSS 选择器</a> 用来选择需要合并抽取的元素。</li>
+						<li>属性名 - 选填，该选择器可以提取所选元素的属性。如果指定，采集也会将此属性添加到生成的JSON中。</li>
+					</ul>
+					<h2>用例</h2>
+					<h4>解析文章参考文献</h4>
+					<p>
+						例如，您需要提取可能具有多个引用链接的新闻文章。如果您用<a href="#" thref="#link-selector"> 链接选择器 </a>并且勾选上<kbd>多选</kbd>来获取这些链接，则在结果集中会得到多条记录，并且每个记录都包含一个引用链接。如果使用分组选择器，可以将所有这些引用链接序列化为一条记录。可以选取所有引用链接并将属性名称设置为<code>href</code>，以提取出这些站点的链接作为一个json格式字符串保存。
+					</p>
+				</div>
+				<div id="element-selector">
+					<h1>元素选择器</h1>
+					<p><a href="#" thref="#element-selector"> 元素选择器</a>是对HTML中包含多个相同数据元素的元素项选择。例如：<a href="#" thref="#element-selector"> 元素选择器</a>可以用来对一个电子商务网站列表中的项目进行选择。该选择器任务将获取到的每个项目的html部分作为子任务的处理范围。子任务将只提取选定元素子集下的元素信息。
+					</p>
+					<p>注意！如果页面是通过向下滚动页面或点击按钮来动态加载新的项目则你应该试试下面这些选择器：</p>
+					<ul>
+						<li><a href="#" thref="#element-scroll-down-selector">滚动元素选择器 </a></li>
+						<li><a href="#" thref="#element-click-selector">点击元素选择器 </a></li>
+					</ul>
+					<h2>配置选项</h2>
+					<ul>
+						<li>选择器 - <a href="#css-selector">CSS 选择器</a> 用于选取其子任务需要处理的HTML范围。
+						</li>
+						<li><kbd>多选</kbd> - 将会按照多个选择的范围提取出多条记录(一般在该类型下都需要选上). 如果没有子任务则不需要勾选</li>
+					</ul>
+					<h2>用例</h2>
+					<h4>从页面中获取多个项目</h4>
+					<p>例如，电子商务网站有一个带有项目列表的页面。你可先建立一个使用<a href="#" thref="#element-selector"> 元素选择器</a>选出包装这些项的元素的任务，然后向其添加多个子任务，以便子任务只在父任务的项目范围HTML中抽取其他的属性数据。图1显示了在这种情况下如何使用<a href="#" thref="#element-selector"> 元素选择器</a>来创建采集任务。</p>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic12.png" alt="图1">
+						<figcaption>图1: 多个项目采集</figcaption>
+					</figure>
+					</p>
+					<h4>从表中提取数据</h4>
+					<p>
+						类似于上面例子中项目的选择，您还可以利用<a href="#" thref="#element-selector"> 元素选择器</a>来选取所有表格行，并添加子任务来分别获取本单元格中的其他字段信息，虽然表选择器可能是更好的解决方案。</p>
+				</div>
+				<div id="element-scroll-down-selector" class="docs"
+					style="display: none;">
+					<h1>滚动元素选择器</h1>
+					<p>
+						这是另一个<a href="#" thref="#element-selector"> 元素选择器</a>，它类似于<a href="#" thref="#element-selector"> 元素选择器</a>，但它可以自动模拟向下滚动页面，以采集到更多通过页面向下滚动时加载的元素。使用延迟属性配置滚动和元素获取之间的等待间隔。模拟滚动操作将在未找到新元素后停止。如果页面可以无限滚动，那么这个选择器将被困在无限循环中。
+					</p>
+					<h2>配置选项</h2>
+					<ul>
+						<li>选择器 - <a href="#css-selector">CSS 选择器</a> 用于选择元素范围
+						</li>
+						<li><kbd>多选</kbd> - 将会根据多个选择的内容提取出多条记录(一般都需要选上)。如果没有子节点任务则不需要勾选。</li>
+						<li>延迟 -延迟元素选择和页面滚动操作之间的间隔时间。这通常是需要指定的，因为数据不会在滚动后立即从服务器获取到数据展示。如果您不想漏数据，超过2000毫秒可能是一个很好的选择，因为服务器响应不够快。</li>
+					</ul>
+					<h2>用例</h2>
+					<p>
+						参考 <a href="#element-selector">元素选择器</a> 的用例。
+					</p>
+				</div>
+				<div id="element-click-selector" class="docs" style="display: none;">
+					<h1>点击元素选择器</h1>
+					<p>
+						<a href="#" thref="#element-click-selector">点击元素选择器 </a>与<a href="#" thref="#element-selector"> 元素选择器</a>类似。它的主要目的也是进行元素选择然后作为子任务的入口。唯一的区别是，<a href="#" thref="#element-click-selector">点击元素选择器 </a>可以通过模拟点击按钮操作来加载新的页面元素。例如，页面使用JavaScript和Ajax进行分页或项目加载的情况可以使用该选择器。
+					</p>
+					<p>注意！在选择可点击元素时，应该通过在元素上移动鼠标并按下“S”来选择它们。这种操作将避免按钮触发点击事件。</p>
+					<h2>配置选项</h2>
+					<ul>
+						<li>选择器 - <a href="#css-selector">CSS 选择器</a> 用来选择需要获取的项目元素，以做为其子任务的选取范围。
+						</li>
+						<li>点击选择器 - <a href="#css-selector">CSS 选择器</a>用来选择需要模拟点击操作以获取更多数据的按钮。
+						</li>
+						<li>点击类型 - 用来给选择器判断什么时候没有新数据以便停止点击事件。</li>
+						<li>点击元素唯一性 - 选择器用来知道哪些按钮已被点击过。</li>
+						<li><kbd>多选</kbd> - 将会根据选择器选取的多个项目生成多条记录(一般都需要选上)。如果没有子节点任务则不需要勾选。</li>
+						<li>延迟 - 延迟元素选择和点击事件之间的延迟。这通常是指定的，因为数据不会在点击后立即从服务器获取到数据展示。如果您不想漏数据，超过2000毫秒可能是一个很好的选择，因为服务器响应不够快。</li>
+						<li>丢弃初始元素 - 程序将只保存开始模拟点击操作之后的页面数据。这对于去重可能是有用的。</li>
+					</ul>
+					<h3>点击类型</h3>
+					<h4>点击一次</h4>
+					<p>
+						点击一次类型将只模拟点击按钮一次。如果规则能匹配出新的按钮的话也会点击。例如，分页链接可能只显示1到5页，但页面6-10在之后的页面的相同位置可能出现，则选择器也会作用在那些按钮上。</p>
+					<h4>点击多次</h4>
+					<p>点击多次类型将模拟点击指定按钮多次，直到没有新的数据元素出现。一个新的数据元素是指具有唯一文本内容的元素。</p>
+					<h3>点击元素去重判定</h3>
+					<p>
+						当点击类型选择的是<kbd>点击一次</kbd>时，根据去重规则，被判定为相同的按钮只会被触发一次；当点击类型选择的是<kbd>点击多次</kbd>时，去重判定规则将用于判断是否还有新的数据元素出现以便结束按钮的模拟操作。
+					</p>
+					<ul>
+						<li>文本去重 - 具有相同的文本内容被认为是同一个。</li>
+						<li>HTML+Text去重 - 具有相同的HTML和文本内容被认为是同一个。</li>
+						<li>HTML去重 - 具有相同的HTML被认为是同一个。</li>
+						<li>CSS去重 - 具有相同的css属性被认为是同一个。</li>
+					</ul>
+					<h2>用例</h2>
+					<h4>导航分页建议配置<kbd>点击一次</kbd>类型的<a href="#" thref="#element-click-selector">点击元素选择器 </a>任务</h4>
+					<p>
+						例如：在一个列表网页上通过很多分页按钮来加载这些数据(点击按钮后url不变)。配置一个选用<a href="#" thref="#element-click-selector">点击元素选择器 </a>的任务，你可以先选出需要获取的数据项和需要模拟点击的按钮。采集将会自动模拟按钮的点击事件来获取所有的数据项。同样，你还需要给这个任务添加一个或多个子任务来获取数据项的各个字段信息。在图1你可以看到此类网站的具体采集配置方式。
+					</p>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic13.png" alt="图1">
+						<figcaption>图1：网站配置点击一次的点击元素选择器任务</figcaption>
+					</figure>
+					</p>
+					<h4>通过点击“更多”按钮加载数据的电子商务类网站任务配置</h4>
+					<p>
+						这个例子与上面的例子类似。唯一不同的是，在这类网站中，需要通过多次点击某个按钮来加载新的数据。在这种情况下，需要配置一个<a href="#" thref="#element-click-selector">点击元素选择器 </a>的任务并且将<kbd>点击类型</kbd>设置为<kbd>点击多次</kbd>。在图2中，您可以看到此类网站的具体采集配置方式。
+					</p>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic14.png" alt="图2">
+						<figcaption>图2：网站配置点击多次方式的点击元素选择器任务</figcaption>
+					</figure>
+					</p>
+				</div>
+				<div id="css-selector">
+					<h1>CSS选择器</h1>
+					<p><projectName><projectName>Act Crawler</projectName></projectName> 利用<a href="#" thref="#css-selector">CSS选择器</a>来定位到web页面的HTML的相关元素并获取数据。当使用Act
+						Crawler的选择器工具来选取一个元素时，程序将自动获取到该元素相关的xpath。不过你也可以自己获取到然后填写到“选择器”的输入框，然后点击“选取预览”按钮来进行测试。Act
+						Crawler支持CSS1-3的版本，并且支持获取通过JQuery添加的样式。下面是一些有用的相关说明文档链接：</p>
+					<ul>
+						<li><a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets#Selector">CSS	Selectors</a></li>
+						<li><a href="http://api.jquery.com/category/selectors/">jQuery CSS selectors</a></li>
+						<li><a href="http://www.w3schools.com/cssref/css_selectors.asp">w3schools CSS selector reference</a></li>
+					</ul>
+					<h2>附加说明</h2>
+					<p>现期版本暂只支持一个客户端打开一个<a href="#" thref="#css-selector">CSS选择器</a>。</p>
+					<p>在<a href="#" thref="#css-selector">CSS选择器</a>中，默认禁止同时选择2种不同类型的元素。如果你确定需要采集2种类型的元素，那么需要在<a href="#" thref="#css-selector">CSS选择器</a>的提示后勾选上<kbd>允许选择不同的类型元素</kbd>，然后再次点击选择其他的元素。</p>
+					</p>在<a href="#" thref="#css-selector">CSS选择器</a>的右端默认会提示是否开启键盘快捷键输入响应，点击后会有<code>S</code>、<code>P</code>、<code>C</code>三个快捷键的提示，其中键盘点击<kbd>S</kbd>键表示选择当前选中的内容；键盘点击<kbd>P</kbd>键表示选择当前选中部分的父节点，当没有父元素时则无效，可连续点击多次来获取父元素；键盘点击<kbd>C</kbd>键则表示选择当前选中部分的子元素，当没有子元素的时候则无效，可连续点击多次来获取。
+					</p>
+					<p>在利用<a href="#" thref="#css-selector">CSS选择器</a>选择好相关内容后，需要点击<code>结束选取</code>按钮，程序才会将选中的内容的xpath信息赋值给相应的选择器任务。</p>
+					<p>
+					<figure class="image">
+						<img src="assets/images/pic15.png" alt="图1">
+						<figcaption>图1：CSS选择器</figcaption>
+					</figure>
+					</p>
+				</div>
+				<div id="storage-backends">
+					<h1>存储备份</h1>
+					<p><projectName>Act Crawler</projectName>插件的【右键】-【选项】支持配置是本地存储还是CouchDB存储，还支持配置将任务上传给自有的采集系统。默认情况下是选择本地存储数据。
+					</p>
+					<h2>任务上传</h2>
+					<p>需要配置服务器端接收的地址，程序上传的数据格式是json，contentType为"application/json;charset=utf-8"</p>
+					<h2>本地存储</h2>
+					<p>本地存储备份使用浏览器的数据存储。这种方式不支持从一个浏览器备份到另外一个浏览器中。</p>
+					<h2>CouchDB</h2>
+					<p>
+						<a href="http://couchdb.apache.org/">CouchDB</a>
+						CouchDB是一个基于REST的NoSQL的JavaScript数据库。程序支持配置为利用CouchDB来存储网站任务及采集数据，然后所有的Chrome都可以配置访问数据。要做到这一点，您可以通过右键单击扩展程序图标和选择【选项】打开配置页，然后您可以手动配置切换存储方式。
+						例如，你可以这样配置：
+					</p>
+					<ul>
+						<li>任务存储 db - http://localhost:5984/scraper-sitemaps</li>
+						<li>数据存储 db - http://localhost:5984/</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<div id="selectContent">
+		<div class="bs-docs-header" tabindex="-1">
+		  <div class="container">
+			<h1>CSS选择器</h1>
+			<p>Act Crawler具有多种类型的选择器，可用于不同类型的数据提取和及满足不同类型的网站。</p>
+		  </div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10">
+					<p>
+					   对于不同类型的数据，有不同类型的选择器。以下表格可以帮你选择一个适合自己的。如果没有一个选择器适合你的需要，那么你可以尝试创建一个。Act Crawler是以很容易实现新选择器的方式建造的。
+					</p>
+					<p>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>选择器</th>
+									<th>返回记录数</th>
+									<th>返回数据</th>
+									<th>是否跟进新任务</th>
+									<th>是否可建子任务</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>文本选择器</td>
+									<td>1 or *</td>
+									<td>text</td>
+									<td>N</td>
+									<td>N</td>
+								</tr>
+								<tr>
+									<td>元素选择器</td>
+									<td>1 or *</td>
+									<td>None</td>
+									<td>N</td>
+									<td>Y</td>
+								</tr>
+								<tr>
+									<td>归类选择器</td>
+									<td>1</td>
+									<td>JSON</td>
+									<td>N</td>
+									<td>N</td>
+								</tr>
+								<tr>
+									<td>链接选择器</td>
+									<td>1 or *</td>
+									<td>text, url</td>
+									<td>Y</td>
+									<td>Y</td>
+								</tr>
+								<tr>
+									<td>图片选择器</td>
+									<td>1 or *</td>
+									<td>image src</td>
+									<td>N</td>
+									<td>N</td>
+								</tr>
+								<tr>
+									<td>HTML选择器</td>
+									<td>1 or *</td>
+									<td>html</td>
+									<td>N</td>
+									<td>N</td>
+								</tr>
+								<tr>
+									<td>属性选择器</td>
+									<td>1 or *</td>
+									<td>text</td>
+									<td>N</td>
+									<td>N</td>
+								</tr>
+								<tr>
+									<td>表格选择器</td>
+									<td>1 or *</td>
+									<td>text</td>
+									<td>N</td>
+									<td>N</td>
+								</tr>
+								<tr>
+									<td>滚动元素选择器</td>
+									<td>1 or *</td>
+									<td>None</td>
+									<td>N</td>
+									<td>Y</td>
+								</tr>
+								<tr>
+									<td>点击元素选择器</td>
+									<td>1 or *</td>
+									<td>None</td>
+									<td>N</td>
+									<td>Y</td>
+								</tr>
+							</tbody>
+						</table>
+					</p>
+					<h3>文本选择器</h3>
+					<p>
+					   用于文本选择。所有HTML将被剥离，只有文本将被返回。可以将正则表达式添加到生成的数据中。在数据导出之前应用正则，这样您就可以在数据被采集到后更改正则表达式。如果选择了链接元素，那么它的HREF属性也会被返回，但是Act Crawler程序不会继续打开链接。
+					</p>
+					<h3>元素选择器</h3>
+					<p>
+					   此选择器将不返回任何数据。使用此选择器需要勾选“多选”并在该选择器任务中添加子选择器任务。
+					</p>
+					<h3>归类选择器</h3>
+					<p>
+					   使用归类选择器来选择多个项目。生成的项数据将被序列化为JSON并存储在一个记录中。
+					</p>
+					<h3>链接选择器</h3>
+					<p>
+					   使用此选择器选择链接。Act Crawler将继续打开链接并从每个子页面中选择数据。
+					</p>
+					<h3>图片选择器</h3>
+					<p>
+					   使用此选择器获取图像SRC属性。图像本身不会被存储，因为它不能作为CSV导出。
+					</p>
+					<h3>HTML选择器</h3>
+					<p>
+					   此选择器将返回选定元素中的HTML和文本。
+					</p>
+					<h3>属性选择器</h3>
+					<p>
+					   这个选择器可以提取HTML元素的属性。例如，您可能想从这个链接中提取标题属性：<code>&lt;a href="#" title="my title"&gt;link&lt;a&gt;</code>。
+					</p>
+					<h3>表格选择器</h3>
+					<p>
+					   这个选择器可以从表中提取数据。表列用于将表行拆分为多个值。当前表选择器仅用于HTML的table标签。
+					</p>
+					<h3>滚动元素选择器</h3>
+					<p>
+					   这是另一个元素选择器，它类似于元素选择器，但它通过多次向下滚动页面，以加载新的数据。使用延迟属性配置滚动和元素搜索之间的等待间隔。在未找到新元素后停止滚动。如果页面可以无限滚动，那么这个选择器将被困在无限循环中。
+					</p>
+					<h3>点击元素选择器</h3>
+					<p>
+					   此元素选择器用于单击按钮后动态加载数据的站点。使用此选择器，必须为单击的按钮指定额外的选择器。
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="abountContent" style="margin-top:60px;">
+		<div class="container">
+        <div class="row">
+            <div class="col-sm-10">
+                <h1>Act Crawler扩展插件</h1>
+                <p>
+                    Act Crawler是用于从网页中提取数据的Chrome浏览器扩展。使用这个扩展，您可以创建一个网站应该如何遍历和提取什么的计划。使用这些网站任务地图，Act Crawler将相应地模拟访问网站并提取所有数据。然后可以将采集数据作为CSV导出。
+                </p>
+                <p>
+                    特点:
+                </p>
+                <ul>
+                    <li>1. 可采集多页面</li>
+                    <li>2. 可配置数据存在本地还是CouchDB</li>
+                    <li>3. 多种数据抽取方式</li>
+					<li>4. 可采集动态加载的数据</li>
+					<li>5. 可预览将采集的结果</li>
+					<li>6. 采集的数据可导出CSV</li>
+					<li>7. 可导入导出网站任务</li>
+					<li>8. 只依赖于谷歌浏览器</li>
+                </ul>
+				<p style="margin-top:20px;">
+					访问主页以获得更多教程和文档：<a href="http://act.crawler.ooo/">http://act.crawler.ooo/</a>
+				</p>
+            </div>
+        </div>
+    </div>
+	</div>
+	<footer class="footer ">
+    <div class="container">
+      <div class="row footer-bottom">
+        <ul class="list-inline text-center">
+          <li>2018-2022 版权所有</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
